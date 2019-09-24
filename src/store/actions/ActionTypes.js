@@ -1,0 +1,1 @@
+export const USERS_LIST_SUCCESS = "USERS_LIST_SUCCESS"
