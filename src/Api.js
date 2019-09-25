@@ -1,23 +1,32 @@
 export function getUsersList() {
-  const users_list_url = 'https://randomuser.me/api/?results=10&seed=abc';
+  const users_list_url = `https://randomuser.me/api/?inc=name,picture,login&results=20&seed=abc`;
 
   return fetchMethod(users_list_url);
 }
 
 export function getUserData() {
-  const user_data_url = 'https://randomuser.me/api/';
+  const user_data_url = `https://randomuser.me/api/`;
+
+  return fetchMethod(user_data_url);
+}
+
+export function getUserAuthData() {
+  const user_data_url = `./auth.json`;
 
   return fetchMethod(user_data_url);
 }
 
 function fetchMethod(url) {
-  return fetch(url)
+  return fetch(url, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
     .then(function(data) {
-      console.log('data: ', data);
-      return data.json();
+      return data;
     })
     .catch(function(error) {
-      console.log('error: ', error);
-      return error.text();
+      return error.toString();
     });
 }

@@ -1,0 +1,54 @@
+/* LoginForm begin
+  ------------------------------------------------------ */
+
+.login-form
+  display: flex
+  justify-content: center
+  flex-wrap: wrap
+  margin: 0 -15px
+
+  &__outer
+    display: flex
+    justify-content: center
+    align-items: center
+    min-height: 50vh
+
+  .form-element
+    margin: 0 15px
+    width: calc(50% - 30px)
+    max-width: 350px
+
+  .submit-element
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin: 0
+    padding: 50px 15px 0
+    width: 100%
+
+    .error
+      margin-bottom: 20px
+      font-size: 14px
+      color: #ff0000
+
+    .button
+      width: auto
+      width: 100%
+      height: 60px
+      max-width: 250px
+      font-size: 13px
+
+@media only screen and (max-width: 567px)
+  .login-form
+    margin: 0
+
+    .form-element
+      margin: 0 0 15px
+      width: 100%
+
+    .submit-element
+      padding: 15px 0 0
+
+
+/* LoginForm end
+  ------------------------------------------------------ */

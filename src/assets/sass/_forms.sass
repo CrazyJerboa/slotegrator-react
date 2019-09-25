@@ -1,0 +1,76 @@
+/*
+ forms
+ ----------------------------------------------------
+ */
+
+.form-element
+  position: relative
+  margin-bottom: 20px
+  font-size: 0
+
+  span.error
+    display: inline-block
+    position: absolute
+    bottom: -15px
+    left: 0
+    width: 200px
+    height: auto
+    line-height: 1.2
+    font-size: 11px
+    text-align: left
+    color: #ff0000
+    transition: top 0.3s, opacity 0.3s, visibility 0.3s
+
+.submit-element
+  position: relative
+  padding-top: 20px
+  text-align: center
+
+@mixin placeholder
+  font-size: 16px
+  font-weight: 400
+  text-transform: capitalize
+  color: #aaa
+  transition: .3s
+@mixin placeholder_focus
+  color: transparent
+
+input:not([type="submit"]), textarea
+  box-sizing: border-box
+  border: 1px solid #aaa
+  background: #fff
+  padding: 0 20px
+  width: 100%
+  font-size: 20px
+  font-weight: 700
+  color: #333
+  transition: .3s
+
+  &.error
+    border-color: #ff0000
+
+  &::-webkit-input-placeholder
+    @include placeholder
+  &::-moz-placeholder
+    @include placeholder
+  &:-moz-placeholder
+    @include placeholder
+  &:-ms-input-placeholder
+    @include placeholder
+
+  &:focus::-webkit-input-placeholder
+    @include placeholder_focus
+  &:focus::-moz-placeholder
+    @include placeholder_focus
+  &:focus:-moz-placeholder
+    @include placeholder_focus
+  &:focus:-ms-input-placeholder
+    @include placeholder_focus
+
+input:not([type="submit"])
+  height: 60px
+
+textarea
+  padding-top: 25px
+  height: 195px
+  resize: none

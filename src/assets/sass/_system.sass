@@ -30,13 +30,43 @@ img
   height: auto
   max-width: 100%
 
+h1, .h1
+  display: flex
+  align-items: center
+  margin: 0 0 30px
+  justify-content: space-between
+  font-size: 32px
+  font-weight: 700
+
+  .button
+    align-self: flex-start
+
+h2, .h2
+  margin: 0 0 30px
+  font-size: 26px
+  font-weight: 700
+
 p
   margin: 0 0 10px
 
 a
+  color: #5FC2DE
   transition: .3s
   &:hover
-    color: #5FC2DE
+    text-decoration: none
+
+@media only screen and (max-width: 767px)
+  h1, .h1
+    .button
+      min-width: 130px;
+      height: 45px;
+
+@media only screen and (max-width: 479px)
+  h1, .h1
+    .button
+      padding: 0 10px
+      min-width: 100px;
+      height: 40px;
 
 /* ------------------------------------------------------ */
 
@@ -58,6 +88,13 @@ a
 
 .row
   display: flex
+
+@media only screen and (max-width: 767px)
+  .outer
+    padding-top: 60px
+
+  .section
+    padding: 30px 0
 
 /* system end
   ------------------------------------------------------ */

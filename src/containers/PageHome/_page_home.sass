@@ -1,0 +1,80 @@
+/* PageHome begin
+  ------------------------------------------------------ */
+
+.page-home
+  .links-list
+    display: flex
+    align-items: center
+    justify-content: space-evenly
+    min-height: 50vh
+
+    .link
+      display: inline-flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      position: relative
+      border: 1px solid #eee
+      border-radius: 10px
+      min-width: 25vw
+      height: 35vh
+      max-width: 50%
+      text-decoration: none
+      &:hover
+        border-color: transparent
+        box-shadow: -5px 10px 25px rgba(0, 0, 0, .2)
+
+      .icon
+        margin-bottom: 25px
+        font-size: 60px
+
+      .text
+        font-size: 22px
+        font-weight: 600
+        text-align: center
+        color: #333
+
+@media only screen and (max-width: 1199px)
+  .page-home
+    .links-list
+      .link
+        min-width: 35vw
+
+@media only screen and (max-width: 991px)
+  .page-home
+    .links-list
+      .link
+        min-width: 42vw
+
+@media only screen and (max-width: 767px)
+  .page-home
+    .links-list
+      .link
+        .icon
+          margin-bottom: 20px
+          font-size: 50px
+        .text
+          font-size: 20px
+
+@media only screen and (max-width: 567px)
+  .page-home
+    .links-list
+      .link
+        .icon
+          font-size: 40px
+        .text
+          font-size: 18px
+
+@media only screen and (max-width: 479px)
+  .page-home
+    .links-list
+      .link
+        .icon
+          margin-bottom: 15px
+          font-size: 35px
+        .text
+          font-size: 16px
+
+
+/* PageHome end
+  ------------------------------------------------------ */

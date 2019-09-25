@@ -2,7 +2,9 @@ import * as ACTION_TYPES from '../actions/ActionTypes'
 
 const initialState = {
   isAuthorised: false,
-  users_list_state: '...'
+  userData: 'Loading...',
+  usersList: 'Loading...',
+  authorisedUserData: 'Loading...'
 }
 
 const UserReducer = (state = initialState, action) => {
@@ -10,7 +12,22 @@ const UserReducer = (state = initialState, action) => {
     case ACTION_TYPES.USERS_LIST_SUCCESS:
       return {
         ...state,
-        users_list_state: action.payload
+        usersList: action.payload
+      }
+    case ACTION_TYPES.USER_INFO_SUCCESS:
+      return {
+        ...state,
+        userData: action.payload
+      }
+    case ACTION_TYPES.LOGIN_SUCCESS:
+      return {
+        ...state,
+        isAuthorised: true
+      }
+    case ACTION_TYPES.LOGOUT_SUCCESS:
+      return {
+        ...state,
+        isAuthorised: false
       }
     default:
       return state
