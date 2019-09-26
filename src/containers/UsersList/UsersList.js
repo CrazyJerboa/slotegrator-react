@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import './_user_list.sass';
 
 class UsersList extends React.Component {
+  /* получение данных пользователя из API */
   changeUserList = async () => {
     const api_url = await getUsersList()
       .then(function(data) {
@@ -27,7 +28,7 @@ class UsersList extends React.Component {
   }
 
   componentDidMount() {
-    this.changeUserList();
+    this.changeUserList(); // автоматический запрос к API при загрузке компонента
   }
 
   render() {
@@ -35,6 +36,8 @@ class UsersList extends React.Component {
 
     let users_list_result;
 
+    /* если константа содержит объект со списком юзеров - формируется
+    список. В противном случае выводится текс с ошибкой */
     if (typeof users_list === 'object') {
       users_list_result = users_list.map((user) =>
         <div key={user.login.uuid} className="element">
