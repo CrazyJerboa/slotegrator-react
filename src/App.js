@@ -17,6 +17,7 @@ import PageProfile from './containers/PageProfile/PageProfile';
 import './assets/sass/styles.sass';
 
 class App extends React.Component {
+  // использую React'овый state дабы не засорять store информаией о высоте экрана
   constructor() {
     super();
 
@@ -32,6 +33,7 @@ class App extends React.Component {
       this.setState({windowHeight: window.innerHeight});
     }
 
+    /* если в localstorage хранится инфа о том, что юзер авторизован - автоматом записываем соответствующее значение в store при перезагрузке страницы */
     if (localStorage.getItem('isAuthorised') !== null) {
       this.props.setAuthSuccess();
     }

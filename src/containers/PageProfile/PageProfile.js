@@ -6,9 +6,10 @@ import history from '../../utils/history';
 import * as ACTION_TYPES from '../../store/actions/ActionTypes';
 import { getUserData } from "../../Api";
 
-import UserInfo from '../../containers/UserInfo/UserInfo';
+import UserInfo from '../../components/UserInfo/UserInfo';
 
 class PageProfile extends React.Component {
+  /* получение данных пользователя из API */
   getData = async () => {
     const api_url = await getUserData()
       .then(function(data) {
@@ -25,6 +26,7 @@ class PageProfile extends React.Component {
       data_date = data_date.getDate() + '.' + (data_date.getMonth() + 1) + '.' + data_date.getFullYear();
 
       result = (
+        /* передаю через props для того, чтобы не подключаться к Redux в двух компонентах, а только в этом */
         <UserInfo
           id={data.login.uuid}
           login={data.login.username}
@@ -43,21 +45,25 @@ class PageProfile extends React.Component {
       result = 'Something is broken, come back later ;)';
     }
 
+    /* данные о юзере записываются в store, чтобы иметь к ним доступ в любом месте в приложении */
     this.props.setUserDataToStore(result);
-    console.log(this.props.userData)
   }
 
   setLogout() {
     this.props.setLogoutSuccess();
-    localStorage.removeItem('isAuthorised');
+    localStorage.removeItem('isAuthorised'); // при log out удаляем запись из localstorage и редиректим на страницу авторизации
     history.push('/login');
   }
 
   componentDidMount() {
     if (!this.props.isAuthorised) {
-      history.push('/login');
+      history.push('/login'); // если юзер не авторизован редиректим на страницу авторизации
     } else {
       if (typeof this.props.userData === 'string') {
+        /* если в store не хранится объект с данными юзера
+        (т.е. записана либо строка с ошибкой, либо строка с текстом
+        "Loading...", то при загрузке компонента происходит
+        попытка получить данные из API */
         this.getData();
       }
     }

@@ -9,6 +9,11 @@ import { connect } from 'react-redux';
 import './_login_form.sass';
 
 class LoginForm extends React.Component {
+  /* в state хранятся логин/пароль, полученные из json-файла,
+      и логин/пароль, введенные юзером */
+  /* при совпадении значений происходит авторизация */
+  /* данные из json-файла записываются в store при прогрузке компонента
+      и удаляются при его "размонтировании" */
   constructor() {
     super();
 
@@ -65,7 +70,9 @@ class LoginForm extends React.Component {
   componentDidUnmpunt() {
     this.setState({
       userLogin: '',
-      userPassword: ''
+      userPassword: '',
+      inputLogin: '',
+      inputPassword: ''
     });
   }
 

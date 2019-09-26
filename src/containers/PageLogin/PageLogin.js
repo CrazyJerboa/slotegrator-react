@@ -7,7 +7,7 @@ import history from '../../utils/history';
 class PageLogin extends React.Component {
   componentDidMount() {
     if (this.props.isAuthorised) {
-      history.push('/profile');
+      history.push('/profile'); // если юзер авторизован - редирект на страницу профиля
     }
   }
 

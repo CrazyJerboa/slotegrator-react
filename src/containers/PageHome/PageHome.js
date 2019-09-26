@@ -11,6 +11,7 @@ class PageHome extends React.Component {
       <div className="page page-home">
         <p className="h1">Welcome!</p>
 
+        /* проверка на авторизованность, вывод соответствующего контента */
         {this.props.isAuthorised
           ? (
             <div className="links-list">
